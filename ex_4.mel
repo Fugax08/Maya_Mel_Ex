@@ -1,0 +1,9 @@
+string $objs[] = `ls -sl`;
+string $meshes[] = `ls -sl -type mesh`;
+string $joints[] = `ls -sl -type joint`;
+string $transforms[] = `ls -sl -type transform`;
+
+print("selection count: " + size($objs) + "\n");
+print("mesh count: " + size($meshes) + "\n");
+print("joint count: " + size($joints) + "\n");
+print("transform count: " + size($transforms) + "\n");

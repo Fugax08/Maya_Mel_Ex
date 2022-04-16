@@ -1,0 +1,20 @@
+string $materials[3];
+$materials[0] = `shadingNode -asShader lambert`;
+setAttr ($materials[0] + ".colorR") 1;
+$materials[1] = `shadingNode -asShader lambert`;
+setAttr ($materials[1] + ".colorG") 1;
+$materials[2] = `shadingNode -asShader blinn`;
+setAttr ($materials[2] + ".colorB") 1;
+
+for($i=0; $i < 3; $i=$i+1)
+{
+    string $sphereName = "pSphere" + $i;
+    string $cubeName = "pCube" + $i;
+    polySphere -n $sphereName;
+    polyCube -n $cubeName;
+    setAttr($sphereName + ".translateX ") (5 * $i);
+    setAttr($cubeName + ".translateX ") (5 * $i);
+    setAttr($cubeName + ".translateY ") 3;
+
+    hyperShade -assign $materials[$i];
+}

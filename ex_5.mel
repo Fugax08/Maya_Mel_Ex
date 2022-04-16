@@ -1,0 +1,20 @@
+string $win = "Window";
+    
+if (`window -q -ex $win`)
+{
+    deleteUI $win;
+}
+
+window -widthHeight 300 300 -title "My Window" $win;
+
+columnLayout -adjustableColumn true;
+text -label "Enter your name: ";
+string $name = `textField`;
+button -label "Enter" -command "buttonEnter($name)";
+showWindow $win;
+
+proc buttonEnter(string $stringName)
+{
+    string $username = `textField -q -text $stringName`;
+    print $username;
+}

@@ -1,0 +1,2 @@
+string $objs[] = `ls -sl`;
+print("objects " + size($objs) + "\n");

@@ -1,0 +1,5 @@
+string $objs[] = `ls -sl`;
+for($obj in $objs)
+{
+    move -r 0 1.5 0 $objs;
+}
